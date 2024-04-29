@@ -8,17 +8,37 @@ import { MyCounterComponent } from './counter/my-counter/my-counter.component';
 import { LoginPageComponent } from './login/login-page/login-page.component';
 import { scoreboardReducer } from './scoreboard/scoreboard.reducer';
 import { MyScoreboardComponent } from './scoreboard/my-scoreboard/my-scoreboard.component';
+import { moviesReducer } from './movies/movies.reducer';
+import { MoviesPageComponent } from './movies/movies-page/movies-page.component';
+import { EffectsModule } from '@ngrx/effects';
+import { MoviesEffects } from './movies/movies.effects';
+import { MoviesService } from './movies/movies.service';
 
 @NgModule({
   imports: [
     BrowserModule,
+    EffectsModule.forRoot(
+      MoviesEffects
+    ),
     StoreModule.forRoot({
       count: counterReducer,
-      game: scoreboardReducer
+      game: scoreboardReducer,
+      movies: moviesReducer
     }),
   ],
-  declarations: [AppComponent, MyCounterComponent, LoginPageComponent, MyScoreboardComponent],
-  bootstrap: [AppComponent],
+  providers: [
+    MoviesService
+  ],
+  declarations: [
+    AppComponent,
+    MyCounterComponent,
+    LoginPageComponent,
+    MyScoreboardComponent,
+    MoviesPageComponent
+  ],
+  bootstrap: [
+    AppComponent
+  ],
 })
 
 export class AppModule {}

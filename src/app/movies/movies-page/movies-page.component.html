@@ -1,0 +1,11 @@
+<h2>Movies</h2>
+
+<p *ngIf="(movies$ | async).length === 0">
+    No movies available
+</p>
+
+<ul *ngIf="(movies$ | async).length > 0">
+    <li *ngFor="let movie of (movies$ | async)">
+        {{ movie }}
+    </li>
+</ul>

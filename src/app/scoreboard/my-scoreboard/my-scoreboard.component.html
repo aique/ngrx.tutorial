@@ -1,0 +1,17 @@
+<h2>Scoreboard</h2>
+<div>Home: {{ (game$ | async).home  }}</div>
+<div>Away: {{ (game$ | async).away }}</div>
+
+<button (click)="homeScore()">Home Score</button>
+<button (click)="awayScore()">Away Score</button>
+<button (click)="resetScore()">Reset Score</button>
+
+<form (submit)="setScores($event)">
+    <label for="home">Home</label>
+    <input name="home">
+    <br />
+    <label for="away">Away</label>
+    <input name="away">
+    <br />
+    <input type="submit" value="Set Scores">
+</form>

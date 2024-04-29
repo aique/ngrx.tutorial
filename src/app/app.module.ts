@@ -5,16 +5,20 @@ import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
 import { counterReducer } from './counter/counter.reducer';
 import { MyCounterComponent } from './counter/my-counter/my-counter.component';
+import { LoginPageComponent } from './login/login-page/login-page.component';
+import { scoreboardReducer } from './scoreboard/scoreboard.reducer';
+import { MyScoreboardComponent } from './scoreboard/my-scoreboard/my-scoreboard.component';
 
 @NgModule({
-  imports: [BrowserModule, StoreModule.forRoot({ count: counterReducer })],
-  declarations: [AppComponent, MyCounterComponent],
+  imports: [
+    BrowserModule,
+    StoreModule.forRoot({
+      count: counterReducer,
+      game: scoreboardReducer
+    }),
+  ],
+  declarations: [AppComponent, MyCounterComponent, LoginPageComponent, MyScoreboardComponent],
   bootstrap: [AppComponent],
 })
+
 export class AppModule {}
-
-
-/*
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at https://github.com/ngrx/platform
-*/

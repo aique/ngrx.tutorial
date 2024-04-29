@@ -17,6 +17,10 @@ Realizan tareas síncronas o asíncronas y devuelven una nueva acción.
 
 **Store** - Método para acceder al estado
 
+### Ciclo de vida
+
+![ciclo de vida de ngrx](./doc/ngrx-lifecycle.png)
+
 ### General
 
 El método *StoreModule.forRoot()* registra de forma global los elementos que accederán al Store de la aplicación.
